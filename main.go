@@ -43,22 +43,6 @@ func identifierAtCursor(file string, row, column int) (*CallInfo, error) {
 	return info, nil
 }
 
-func logToFile(value string) error {
-	f, err := os.OpenFile(
-		"C:\\Users\\david\\dev\\go\\zed-wails\\go\\log.txt",
-		os.O_APPEND|os.O_CREATE|os.O_WRONLY,
-		0644,
-	)
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
-
-	_, err = fmt.Fprintln(f, value)
-
-	return err
-}
-
 type CallInfo struct {
 	Object string
 	Method string
